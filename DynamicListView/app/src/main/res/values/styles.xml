@@ -5,4 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <!-- Applying Theme for Splash Screen -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
 </resources>
