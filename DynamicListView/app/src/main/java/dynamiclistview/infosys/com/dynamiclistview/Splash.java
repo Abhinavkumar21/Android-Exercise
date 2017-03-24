@@ -1,9 +1,10 @@
-package dynamiclistview.infosys.com.dynamiclistview;
+package com.infosys.com.dynamiclistview;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import dynamiclistview.infosys.com.dynamiclistview.MainActivity;
 
 
 public class Splash extends AppCompatActivity {
@@ -13,9 +14,9 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Intent intent = new Intent(this, MainActivity.class);
-        //startActivity(intent);
-        //finish();
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
+        finish();
     }
 
 
