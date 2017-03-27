@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import com.google.gson.Gson;
@@ -25,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Abhinav_Kumar21 on 3/24/2017.
  *
  * MainActivity.java - a simple Activity class for entry point of Application.
- * @author  Alvin Abhinav_Kumar21
+ * @author  Abhinav_Kumar21
  * @version 1.0
  * @Description This class is the Activity Class which has Base call for all Related classes - TitleBar, Network,
  *              RetroFit.
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 DataJSON jsonResponse = response.body();
                 tv_titlebar.setText(jsonResponse.getTitle());//setup Titlebar Text
                 data = new ArrayList<>(Arrays.asList(jsonResponse.getRows()));
-                adapter = new DataAdapter(getApplicationContext(),data);
+                adapter = new DataAdapter(getApplicationContext(), data);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -153,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
 
 
