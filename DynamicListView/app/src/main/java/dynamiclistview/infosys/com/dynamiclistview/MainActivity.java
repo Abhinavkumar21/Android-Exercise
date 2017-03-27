@@ -61,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
                 DataJSON jsonResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(jsonResponse.getRows()));
-                adapter = new DataAdapter(data);
+                adapter = new DataAdapter(getApplicationContext(),data);
                 recyclerView.setAdapter(adapter);
+
 
             }
 

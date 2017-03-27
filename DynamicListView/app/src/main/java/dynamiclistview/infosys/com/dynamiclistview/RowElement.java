@@ -17,7 +17,5 @@ public class RowElement {
         return description;
     }
 
-    public String getImageHref() {
-        return imageHref;
-    }
+    public String getImageHref() {  return imageHref;  }
 }
