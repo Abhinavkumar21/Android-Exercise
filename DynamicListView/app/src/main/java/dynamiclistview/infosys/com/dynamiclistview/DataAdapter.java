@@ -57,38 +57,34 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
             // viewHolder.tv_api_level.setText(android.get(i).getImageHref());
 
             // viewHolder.tv_android.setText(android_versions.get(i).getAndroid_version_name());
-            System.out.println("URL ::"+i+ android.get(i).getImageHref()   );
-            if( android.get(i).getImageHref() != null) {
+          //  System.out.println("URL ::"+i+ android.get(i).getImageHref());
+            Picasso.with(context).load(android.get(i).getImageHref())
+                    //.placeholder(R.drawable.draw_detailed_view_display)
+                    //.error(R.drawable.draw_detailed_view_display)
+                    .resize(200, 200)
+                    .into(mviewHolder.tv_api_level, new com.squareup.picasso.Callback() {
+                        @Override
+                        public void onSuccess() {
 
-               // Picasso.with(context).load(android.get(i).getImageHref()).into(viewHolder.tv_api_level);
+                            mviewHolder.tv_api_level.setVisibility(View.VISIBLE);
+                        }
 
-
-                Picasso.Builder builder = new Picasso.Builder(context);
-
-
-                builder.listener(new Picasso.Listener()
-                {
-                    @Override
-                    public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception)
-                    {
-                        mviewHolder.tv_api_level.setVisibility(View.GONE);
-                    }
-                });
-                builder.build().load(android.get(i).getImageHref()).resize(200, 200).into(mviewHolder.tv_api_level);
-
-            }
+                        @Override
+                        public void onError() {
+                            mviewHolder.tv_api_level.setVisibility(View.GONE);
+                        }
+                    });
 
 
-            //load image with picasso
-           // if (mSubredditItems.get(position).getUrl() != null)
-           //     Picasso.with(mCntx).load(mSubredditItems.get(position).getUrl()).into(holder.pic);
-            //holder._pic.setImage(ImageSource.uri(mSubredditItems.get(position).getUrl()));
+                            //load image with picasso
+                            // if (mSubredditItems.get(position).getUrl() != null)
+                            //     Picasso.with(mCntx).load(mSubredditItems.get(position).getUrl()).into(holder.pic);
+                            //holder._pic.setImage(ImageSource.uri(mSubredditItems.get(position).getUrl()));
 
 
-            //int proportionalHeight = UIUtil.containerHeight((MainActivity) mCntx);
-           // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, proportionalHeight); // (width, height)
-           // viewHolder.container.setLayoutParams(params);
-
+                            //int proportionalHeight = UIUtil.containerHeight((MainActivity) mCntx);
+                            // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, proportionalHeight); // (width, height)
+                            // viewHolder.container.setLayoutParams(params);
 
 
         }
@@ -106,11 +102,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
         public ViewHolder(View view) {
             super(view);
 
-
             tv_name = (TextView)view.findViewById(R.id.tv_name);
             tv_version = (TextView)view.findViewById(R.id.tv_version);
             tv_api_level = (ImageView)view.findViewById(R.id.tv_api_level);
 
         }
     }
+
+
 }

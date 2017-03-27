@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="gray">#444440</color>
+    <color name="textcolor">#444440</color>
+    <color name="titlebar_backgroung_color">#323331</color>
+    <color name="titlebar_font_color">#FFFFFF</color>
+
 </resources>
