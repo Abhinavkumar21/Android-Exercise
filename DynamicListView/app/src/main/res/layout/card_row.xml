@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    card_view:cardCornerRadius="5dp"
+    android:layout_marginTop="@dimen/card_layout_topmargin"
+    android:layout_marginLeft="@dimen/card_layout_leftmargin"
+    android:layout_marginRight="@dimen/card_layout_rightmargin"
+    card_view:cardCornerRadius="@dimen/card_layout_cardCornerRadius"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/card_layout_ll_margin"
         android:orientation="vertical"
         >
         <TextView
             android:id="@+id/tv_name"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/card_layout_tv_margintop"
+            android:layout_marginBottom="@dimen/card_layout_tv_marginbottom"
+            android:textSize="@dimen/card_layout_tv_textsize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -31,19 +31,19 @@
 
             <TextView
                 android:id="@+id/tv_version"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero_layout_width"
                 android:layout_height="wrap_content"
-                android:padding="10dip"
-                android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:padding="@dimen/card_layout_tv_padding"
+                android:layout_margin="@dimen/card_layout_tv_margin"
+                android:layout_weight="@integer/card_layout_item_wiight" />
 
             <ImageView
                 android:id="@+id/tv_api_level"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero_layout_width"
                 android:layout_height="wrap_content"
-                android:padding="10dip"
-                android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:padding="@dimen/card_layout_tv_padding"
+                android:layout_margin="@dimen/card_layout_iv_margin"
+                android:layout_weight="@integer/card_layout_item_wiight" />
 
         </LinearLayout>
 

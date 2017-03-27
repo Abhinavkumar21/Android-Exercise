@@ -9,6 +9,7 @@
         android:background="@color/titlebar_backgroung_color"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:textSize="@dimen/card_layout_tv_textsize"
         android:textColor="@color/titlebar_font_color"
         android:gravity ="center"/>
 
