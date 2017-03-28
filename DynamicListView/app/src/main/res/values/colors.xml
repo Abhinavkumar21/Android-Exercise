@@ -4,5 +4,6 @@
     <color name="textcolor">#444440</color>
     <color name="titlebar_backgroung_color">#323331</color>
     <color name="titlebar_font_color">#FFFFFF</color>
+    <color name="rowtitle_font_color">#4169E1</color>
 
 </resources>

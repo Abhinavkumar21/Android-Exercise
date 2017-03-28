@@ -2,7 +2,15 @@ package dynamiclistview.infosys.com.dynamiclistview;
 
 /**
  * Created by Abhinav_Kumar21 on 3/26/2017.
+ *
+ * RowElement.java
+ * @author  Abhinav_Kumar21
+ * @version 1.0
+ * @Description Simple model for JOSN structure reference.
+ *
+ *
  */
+
 public class RowElement {
 
     private String title;

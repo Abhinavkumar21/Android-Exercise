@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<RowElement> data;
     private DataAdapter adapter;
     private SwipeRefreshLayout swipeContainer;
-    private TextView tv_titlebar;
+    private TextView tv_titlebar,mEmptyTextView;
 
 
     @Override
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
    /*
        This refreshes the items on pull to refresh
     */
@@ -108,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initializeView(){
 
+        mEmptyTextView = (TextView) findViewById(R.id.emptyTextView);
+
         recyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
@@ -145,7 +148,36 @@ public class MainActivity extends AppCompatActivity {
                 tv_titlebar.setText(jsonResponse.getTitle());//setup Titlebar Text
                 data = new ArrayList<>(Arrays.asList(jsonResponse.getRows()));
                 adapter = new DataAdapter(getApplicationContext(), data);
+
+
+                adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                    @Override
+                    public void onChanged() {
+                        super.onChanged();
+
+                        checkRecyclerViewIsEmpty();
+                    }
+
+                    @Override
+                    public void onItemRangeChanged(int positionStart, int itemCount) {
+                        super.onItemRangeChanged(positionStart, itemCount);
+
+                        checkRecyclerViewIsEmpty();
+                    }
+
+                    @Override
+                    public void onItemRangeRemoved(int positionStart, int itemCount) {
+                        super.onItemRangeRemoved(positionStart, itemCount);
+
+                        checkRecyclerViewIsEmpty();
+                    }
+                });
+
+
                 recyclerView.setAdapter(adapter);
+               // checkRecyclerViewIsEmpty();
+
+
             }
 
             @Override
@@ -153,6 +185,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+   /*
+      This checks whether list to be shown is empty
+
+    */
+    private void checkRecyclerViewIsEmpty() {
+        if (adapter.getItemCount() == 0) {
+            mEmptyTextView.setVisibility(View.VISIBLE);
+        } else {
+            mEmptyTextView.setVisibility(View.GONE);
+        }
     }
 
 

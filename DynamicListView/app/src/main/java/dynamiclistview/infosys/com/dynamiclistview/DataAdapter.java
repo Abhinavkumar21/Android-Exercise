@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.content.Context;
 
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -29,11 +30,11 @@ import java.util.ArrayList;
  */
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
 
-    private ArrayList<RowElement> android;
+    private ArrayList<RowElement> arrRowElement;
     private Context context;
 
-    public DataAdapter(Context context,ArrayList<RowElement> android) {
-        this.android = android;
+    public DataAdapter(Context context,ArrayList<RowElement> listArr) {
+        this.arrRowElement = listArr;
         this.context = context;
     }
 
@@ -52,36 +53,51 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
 
+        if(arrRowElement.get(i).getTitle()==null && arrRowElement.get(i).getDescription()==null && arrRowElement.get(i).getImageHref()==null )
+            return;
+
         final DataAdapter.ViewHolder mviewHolder = viewHolder;
 
-       // if(android.get(i).getTitle()!=null && android.get(i).getDescription()!=null && android.get(i).getImageHref()!=null )
-        {
-           //if(android.get(i).getTitle()!=null)
-              mviewHolder.tv_name.setText(android.get(i).getTitle());
+              mviewHolder.tv_title.setText(arrRowElement.get(i).getTitle());
 
-            //if(android.get(i).getDescription()!=null)
-              mviewHolder.tv_version.setText(android.get(i).getDescription());
 
-            //if(android.get(i).getImageHref()!=null)
-              Picasso.with(context).load(android.get(i).getImageHref()).resize(500, 500).into(mviewHolder.tv_api_level);
-        }
+              mviewHolder.tv_description.setText(arrRowElement.get(i).getDescription());
+
+              /*
+              This will check if image on server is valid or not. If the link is not valid image view will be removed from
+              row and entire space will be taken up by other row elements
+              */
+              Picasso.with(context).load(arrRowElement.get(i).getImageHref()).resize(Util.IMG_RESIZE_VALUE, Util.IMG_RESIZE_VALUE).into(mviewHolder.img_url_ref, new Callback() {
+                  @Override
+                  public void onSuccess() {
+                      mviewHolder.img_url_ref.setVisibility(View.VISIBLE);
+                  }
+
+                  @Override
+                  public void onError() {
+                      mviewHolder.img_url_ref.setVisibility(View.GONE);
+
+                  }
+              });
+
     }
 
 
     @Override
     public int getItemCount() {
-        return android.size();
+       // textViewNoData.setVisibility(android.size() > 0 ? View.GONE : View.VISIBLE);
+        return arrRowElement.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView tv_name,tv_version;
-        private ImageView tv_api_level;
+        private TextView tv_title,tv_description;
+        private ImageView img_url_ref;
         public ViewHolder(View view) {
             super(view);
 
-            tv_name = (TextView)view.findViewById(R.id.tv_name);
-            tv_version = (TextView)view.findViewById(R.id.tv_version);
-            tv_api_level = (ImageView)view.findViewById(R.id.tv_api_level);
+            tv_title = (TextView)view.findViewById(R.id.tv_rowtitle);
+            tv_description = (TextView)view.findViewById(R.id.tv_rowdescription);
+            img_url_ref = (ImageView)view.findViewById(R.id.img_url);
 
         }
     }
