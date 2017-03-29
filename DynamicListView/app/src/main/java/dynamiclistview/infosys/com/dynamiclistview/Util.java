@@ -22,7 +22,7 @@ public class Util {
     public static final String ENDPOINT_URL = "2iodh4vg0eortkl/facts.json";
     private static String NETWORK_ERROR_HEADING = "Network Error";
     private static String NETWORK_ERROR_MESSAGE = "You are not connected to network. Please change mobile network settings and try again.";
-    public static int IMG_RESIZE_VALUE = 500;//this is a temporary value required to set for showing image fit in recycleview row item
+    public static int IMG_RESIZE_VALUE = 350;//this is a temporary value required to set for showing image fit in recycleview row item
 
 
     public static boolean isNetworkAvailable(Context context) {

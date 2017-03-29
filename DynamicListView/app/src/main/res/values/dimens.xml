@@ -11,7 +11,7 @@
 
     <dimen name="card_layout_tv_margintop">10dp</dimen>
     <dimen name="card_layout_tv_marginbottom">10dp</dimen>
-    <dimen name="card_layout_tv_textsize">25sp</dimen>
+    <dimen name="card_layout_tv_textsize">18sp</dimen>
     <dimen name="zero_layout_width">0dp</dimen>
     <dimen name="zero_layout_height">0dp</dimen>
 
