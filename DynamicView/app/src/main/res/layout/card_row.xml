@@ -1,0 +1,51 @@
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/card_layout_common_margin"
+    android:layout_marginLeft="@dimen/card_layout_common_margin"
+    android:layout_marginRight="@dimen/card_layout_common_margin"
+    card_view:cardCornerRadius="@dimen/card_layout_common_margin"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_layout_ll_margin"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_rowtitle"
+            android:layout_marginTop="@dimen/card_layout_tv_commonmargin"
+            android:layout_marginBottom="@dimen/card_layout_tv_commonmargin"
+            android:textSize="@dimen/card_layout_tv_textsize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/rowtitle_font_color"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_rowdescription"
+                android:layout_width="@dimen/zero_layout_width"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/card_layout_item_common"
+                android:layout_margin="@dimen/card_layout_item_common"
+                android:layout_weight="@integer/card_layout_item_weight" />
+
+            <ImageView
+                android:id="@+id/img_url"
+                android:layout_width="@dimen/zero_layout_width"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/card_layout_item_common"
+                android:layout_margin="@dimen/card_layout_iv_margin"
+                android:layout_weight="@integer/card_layout_item_weight" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

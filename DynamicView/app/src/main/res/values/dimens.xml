@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="card_layout_common_margin">5dp</dimen>
+    <dimen name="card_layout_ll_margin">10dp</dimen>
+    <dimen name="card_layout_tv_commonmargin">10dp</dimen>
+    <dimen name="card_layout_tv_textsize">18sp</dimen>
+    <dimen name="zero_layout_width">0dp</dimen>
+    <dimen name="zero_layout_height">0dp</dimen>
+    <dimen name="card_layout_item_common">10dp</dimen>
+    <integer name="card_layout_item_weight">1</integer>
+    <dimen name="card_layout_iv_margin">5dp</dimen>
+    <dimen name="empty_list_textsize">20sp</dimen>
+</resources>
